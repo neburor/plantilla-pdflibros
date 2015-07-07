@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.png">
+
+  <title>Plantilla General de funcionamiento PDFlibros.org</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta content="es" name="language"/>
+  <meta content="article" property="og:type"/>
+  <meta content="" property="og:site_name"/>
+  <meta content="" property="og:title"/>
+  <meta content="" property="og:description"/>
+  <meta content="" property="og:image"/>
+  <meta content="" property="og:url"/>
+
+  <link rel="image_src" href="" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <link href="css/bootstrap-datatables.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/rating.css" rel="stylesheet"/>
+  <link href="css/custom.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- Menu en el top -->
+<nav class="navbar navbar-default navbar-fixed-top top-nav">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://www.pdflibros.org/"><img src="img/logo.png" alt="Libros PDF"></a>
+      
+    </div>
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="http://www.pdflibros.org/contribuir.html"><i class="fa fa-pencil-square-o"></i> <span class="hidden-xxs">Contribuir</span></a></li>
+        <li><a href="http://www.pdflibros.org/registrarse.html"><i class="fa fa-user-plus"></i> <span class="hidden-xxs">Registrarse</span></a></li>
+      </ul>
+  </div>
+</nav>
+<!-- Contenido offcanvas del menu -->
+<div class="row contenido row-offcanvas row-offcanvas-left">
+  <!-- Menu con offcanvas -->
+<nav class="navbar navbar-default subtop-nav">
+    <div class="container">
+      <!-- Menu offcanvas-->
+      <div class="sidebar-offcanvas">
+        <ul class="nav navbar-nav">
+          <li><a href="http://www.pdflibros.org/">Libros</a></li>
+          <li><a href="http://www.pdflibros.org/">Escritores</a></li>
+          <li><a href="http://www.pdflibros.org/">Frases</a></li>
+          <li><a href="http://www.pdflibros.org/">Articulos</a></li>
+        </ul>
+      </div>
+      <div class="navbar-header pull-right">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas"><i class="fa fa-bars"></i></button>   
+        <form action="http://www.pdflibros.org/buscar/" id="cse-search-box" class="navbar-form navbar-left" role="search">
+          <input type="hidden" name="cx" value="partner-pub-3088837901615838:6074027469">
+          <input type="hidden" name="cof" value="FORID:10">
+          <input type="hidden" name="ie" value="UTF-8">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control input-pdfl" name="q" id="q" placeholder="Buscar ..." required>
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default btn-pdfl" name="sa" id="sa"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</nav>
+<!-- Contenido -->
+<div class="container">
+<div class="col-md-10 col-xs-12 col-md-push-1 xxs-nopadding">
+  <div class="col-sm-6">
+  <h2>Formulario de <b>registro</b></h2>
+  <form class="form form-inline registro" role="form" tipo="preregistro">
+    <div class="input-group">
+      <span class="input-group-addon addon-pdfl"><i class="fa fa-at"></i></span>
+      <input type="email" name="correo" class="form-control input-pdfl" placeholder="correo@ejemplo.com.mx">          
+      <div class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl" collapseid="collapseRegistrarme" id="btn-registrarse"><i class="fa fa-user-plus"></i> <span class="hidden-xxs">Registrarme</span></button></div>
+    </div>
+    <div class="result"></div>
+  </form>
+  <div class="collapse" id="collapseRegistrarme">
+    <div class="well well-pdfl">
+      <form class="form password" role="form" tipo="password">
+        <div class="result"><p>Proporcionenos una contraseña.</p></div> 
+          <div class="input-group">
+            <span class="input-group-addon addon-pdfl"><i class="fa fa-lock"></i></span>
+            <input type="email" name="correo" class="hidden" value="">
+            <input type="password" class="form-control input-pdfl" name="pass" placeholder="contraseña">
+            <input type="password" class="form-control input-pdfl" name="repass" placeholder="repetir">
+          </div>
+        <label class="checkbox-pdfl"><input type="checkbox" name="autopass"><span>Enviarme contraseña automatica.</span></label>
+        <button type="submit" class="btn btn-default btn-block btn-pdfl">Finalizar registro</button>
+      </form>
+      <small>Al registrarme acepto todos los <a href="" class="a_link tomodal" path="terminos">Terminos y condiciones</a> de <strong>PDFLibros.org</strong> y estoy al tanto de la <a href="" class="a_link tomodal" path="privacidad">politica de privacidad</a>.</small>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-sm-6">
+  <h2>Formulario de <b>login</b></h2>
+  <div class="well well-pdfl"> 
+    <form class="form ingreso" role="form" tipo="ingresar">
+      <div class="result"></div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+          <input type="email" name="correo" class="form-control input-pdfl" placeholder="correo@ejemplo.com.mx">
+          <input type="password" name="pass" class="form-control input-pdfl" placeholder="contraseña">
+        </div>  
+        <button type="submit" class="btn btn-default btn-pdfl"><i class="fa fa-sign-in"></i> Ingresar</button> 
+          <!--
+          <small><b>O conectarse con :</b></small> <a href="" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a> <a href="" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+          <label class="checkbox-pdfl"><input type="checkbox" id="recordarme" name="recordarme"><span>Recordarme en este equipo.</span></label>
+        -->
+      </div>
+    </form>
+  </div>
+  </div>
+
+  <div class="col-xs-12">
+    <h2>Formulario de <b>aportaciones</b></h2>
+    <div class="col-sm-6">
+      <h3>Sin notificacion</h3>
+      <ul class="list-group list-group-striped-pdfl">
+        <li class="list-group-item"><b>Titulo de libro</b>
+          <form class="form" role="form" tipo="titulo">
+            <div class="result"></div>
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-book"></i></span>
+              <input type="text" class="form-control input-pdfl" name="titulo" placeholder="Agregar titulo ...">
+              <span class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl"><i class="fa fa-share"></i></button></span>
+            </div>
+          </form>
+        </li>
+        <li class="list-group-item"><b>Nombre de escritor</b> 
+          <form class="form" role="form" tipo="escritor">
+            <div class="result"></div>
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-book"></i></span>
+              <input type="text" class="form-control input-pdfl" name="escritor" placeholder="Agregar Autor ...">
+              <span class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl"><i class="fa fa-share"></i></button></span>
+            </div>
+          </form>
+        </li>
+        <li class="list-group-item"><b>Frase o cita (imagen)</b>
+          <form class="form" role="form" tipo="imgupload">
+            <div class="progress hidden">
+              <div class="progress-bar progress-bar-pdfl" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >0%</div>
+            </div>
+            <div class="result"></div>
+            <div class="btn-group btn-group-justified">
+              <div class="btn-group">
+                <span class="btn btn-default btn-pdfl fileUpload" >Seleccionar <i class="fa fa-image"></i><input type="file" class="form-control upload" name="imagen" accept="image/*"></span>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-default btn-pdfl" disabled="disabled"> Subir <i class="fa fa-cloud-upload"></i></button>
+              </div>
+            </div>
+            <img src="#" class="img-thumbnail hidden" />
+          </form>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <h3>Con notificacion</h3>
+      <ul class="list-group list-group-striped-pdfl">
+        <li class="list-group-item"><b>Titulo de libro</b>
+          <form class="form" role="form" tipo="titulo">
+            <div class="result"></div>
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-book"></i></span>
+              <input type="text" class="form-control input-pdfl" name="titulo" placeholder="Agregar titulo ...">
+              <span class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl"><i class="fa fa-share"></i></button></span>
+            </div>
+            <label class="checkbox-pdfl"><input type="checkbox" name="opciones"><span>Recibir notificaciones de esta recomendacion.</span></label>
+            <div class="collapse">
+              <div class="input-group">
+                <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+                <input type="email" name="correo" class="form-control input-pdfl" placeholder="correo@ejemplo.com" disabled="disabled">
+              </div>
+            </div>
+          </form>
+        </li>
+        <li class="list-group-item"><b>Nombre de escritor</b> 
+          <form class="form" role="form" tipo="escritor">
+            <div class="result"></div>
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-book"></i></span>
+              <input type="text" class="form-control input-pdfl" name="escritor" placeholder="Agregar Autor ...">
+              <span class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl"><i class="fa fa-share"></i></button></span>
+            </div>
+            <label class="checkbox-pdfl"><input type="checkbox" name="opciones"><span>Recibir notificaciones de esta recomendacion.</span></label>
+            <div class="collapse">
+              <div class="input-group">
+                <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+                <input type="email" name="correo" class="form-control input-pdfl" placeholder="correo@ejemplo.com" disabled="disabled">
+              </div>
+            </div>
+          </form>
+        </li>
+        <li class="list-group-item"><b>Frase o cita (imagen)</b>
+          <form class="form" role="form" tipo="imgupload">
+            <div class="progress hidden">
+              <div class="progress-bar progress-bar-pdfl" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >0%</div>
+            </div>
+            <div class="result"></div>
+            <div class="btn-group btn-group-justified">
+              <div class="btn-group">
+                <span class="btn btn-default btn-pdfl fileUpload" >Seleccionar <i class="fa fa-image"></i><input type="file" class="form-control upload" name="imagen" accept="image/*"></span>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-default btn-pdfl" disabled="disabled"> Subir <i class="fa fa-cloud-upload"></i></button>
+              </div>
+            </div>
+            <label class="checkbox-pdfl"><input type="checkbox" name="opciones"><span>Recibir notificaciones de esta recomendacion.</span></label>
+            <div class="collapse">
+              <div class="input-group">
+                <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+                <input type="email" name="correo" class="form-control input-pdfl" placeholder="correo@ejemplo.com" disabled="disabled">
+              </div>
+            </div>
+            <img src="#" class="img-thumbnail hidden" />
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <h2>Formulario de <b>compartir por correo</b></h2>
+    <form class="form" role="form" tipo="compartir">
+      <div class="result"></div>
+      <div class="input-group">
+        <span class="input-group-addon addon-pdfl"><i class="fa fa-at"></i></span>
+        <input type="email" name="correoaenviar" class="form-control input-pdfl" placeholder="Enviar a correo@ejemplo.com">
+        <span class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl"><span class="hidden-xs">Enviar correo</span> <i class="fa fa-share"></i></button></span>
+      </div>
+      <label class="checkbox-pdfl"><input type="checkbox" name="opciones"><span>Opciones avanzadas</span></label>
+      <div class="collapse">
+        <p>Escriba su correo para recibir notificacion del envio y un mensaje al destinatario.</p>
+        <div class="input-group">
+          <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+          <input type="email" name="correo" class="form-control input-pdfl" placeholder="micorreo@ejemplo.com" disabled="disabled">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon addon-pdfl"><i class="fa fa-comments"></i></span>
+          <textarea name="mensaje" placeholder="Su mensaje al destinatario" class="form-control input-pdfl" disabled="disabled"></textarea>
+        </div>
+      </div>
+      </form>
+  </div>
+  <div class="col-sm-6">
+    <h2>Formulario de <b>recomendar enlace</b></h2>
+    <div class="input-group">
+      <span class="input-group-addon addon-pdfl"><i class="fa fa-file-pdf-o"></i></span>
+      <input type="text" class="form-control input-pdfl" value="http://www.dominio.com/archivo.pdf">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default btn-pdfl btn-report" title="Reportar enlace roto" id-report="1"><i class="fa fa-unlink"></i></button>
+        <a href="" class="btn btn-default btn-pdfl" target="_blank" title="Abrir PDF"><i class="fa fa-external-link-square"></i><span class="sr-only">Archivo PDF</span></a>
+      </span>
+    </div>
+    <form class="form" role="form" tipo="linkpdf">
+      <div class="result"></div>
+      <div class="input-group">
+        <span class="input-group-addon addon-pdfl"><i class="fa fa-link"></i></span>
+        <input type="text" name="enlacepdf" class="form-control input-pdfl" placeholder="Agregar enlace PDF ...">
+        <span class="input-group-btn"><button  type="submit" class="btn btn-default btn-pdfl"><span class="hidden-xs hidden-md">Recomendar</span> <i class="fa fa-share"></i></button></span>
+      </div>
+      <label class="checkbox-pdfl"><input type="checkbox" name="opciones"><span>Recibir notificaciones de esta recomendacion.</span></label>
+      <div class="collapse">
+      <div class="input-group">
+        <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+        <input type="email" name="correo" class="form-control input-pdfl" placeholder="correo@ejemplo.com" disabled="disabled">
+      </div>
+      </div>
+    </form>
+  </div>
+  
+  <h2>Opciones para cada <b>libro</b></h2>
+  <div class="col-sm-4">
+    <h3>Me gusta</h3>
+    <div class="input-group nopinput-addon pull-left">
+      <span class="input-group-addon addon-pdfl"><i class="fa fa-thumbs-o-up"></i></span>
+      <div class="input-group-btn">
+        <button class="btn btn-default btn-pdfl btn-like" like-text="Me gusta" like-id="0"> Me gusta</button>
+      </div>              
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <h3>Lectura</h3>
+    <div class="input-group nopinput-addon">
+      <span class="input-group-addon addon-pdfl"> <i class="fa fa-heart"></i></span>
+      <input type="hidden" class="form-control">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default btn-pdfl btn-like" like-text="Quiero leerlo" like-id="0"> Quiero leerlo !</button>
+        <button type="button" class="btn btn-default btn-pdfl dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu dropdown-menu-pdfl" role="menu">
+            <li>
+              <button type="button" class="btn btn-link btn-like" like-text="Quiero leerlo" like-id="0"><i class="fa fa-heart"></i> Quiero leerlo !</button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-link btn-like" like-text="Lo estoy leyendo" like-id="0"><i class="fa fa-leanpub"></i> Lo estoy leyendo !</button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-link btn-like" like-text="Ya lo lei" like-id="0"><i class="fa fa-check-square"></i> Ya lo lei !</button>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <h3>Rating</h3>
+    <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+      <meta itemprop="bestRating" content="5">
+      <meta itemprop="worstRating" content="0">
+      <meta itemprop="ratingCount" content="4">
+      <div class="rating stars" id-rating="0" itemprop="ratingValue" content="3.2500" rating="0"></div>          
+    </div>
+  </div>
+    <div class="col-sm-12">
+    <h2>Formulario con actualizacion en <b>tabla</b></h2>
+    <ul class="list-group list-group-striped-pdfl nav-justified">
+        <li class="list-group-item"><b>Titulo de libro</b>
+          <form class="form" role="form" tipo="titulo" datatable="registro">
+            <div class="result"></div>
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-book"></i></span>
+              <input type="text" class="form-control input-pdfl" name="titulo" placeholder="Agregar titulo ...">
+              <span class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl"><i class="fa fa-share"></i></button></span>
+            </div>
+          </form>
+        </li>
+        <li class="list-group-item"><b>Nombre de escritor</b> 
+          <form class="form" role="form" tipo="escritor" datatable="registro">
+            <div class="result"></div>
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-book"></i></span>
+              <input type="text" class="form-control input-pdfl" name="escritor" placeholder="Agregar Autor ...">
+              <span class="input-group-btn"><button type="submit" class="btn btn-default btn-pdfl"><i class="fa fa-share"></i></button></span>
+            </div>
+          </form>
+        </li>
+        <li class="list-group-item"><b>Frase o cita (imagen)</b>
+          <form class="form" role="form" tipo="imgupload" datatable="registro">
+            <div class="progress hidden">
+              <div class="progress-bar progress-bar-pdfl" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >0%</div>
+            </div>
+            <div class="result"></div>
+            <div class="btn-group btn-group-justified">
+              <div class="btn-group">
+                <span class="btn btn-default btn-pdfl fileUpload" >Seleccionar <i class="fa fa-image"></i><input type="file" class="form-control upload" name="imagen" accept="image/*"></span>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-default btn-pdfl" disabled="disabled"> Subir <i class="fa fa-cloud-upload"></i></button>
+              </div>
+            </div>
+            <img src="#" class="img-thumbnail hidden" />
+          </form>
+        </li>
+      </ul>
+    <table class="table table-bordered table-striped table-striped-pdfl" id="registro">
+      <thead>
+        <tr>
+          <th><span class="hidden-xxs">Accion</span></th>
+          <th><span class="hidden-xxs">Tipo</span></th>
+          <th>C<span class="hidden-xxs">ontenido</span></th>
+          <th>F<span class="hidden-xxs">echa</span></th>
+          <th>P<span class="hidden-xxs">untos</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="badge">A<span class="hidden-xxs">PORTACION</span></span></td><td><b>T<span class="hidden-xxs">itulo</span></b></td><td>el guerrero de la sombre del cerezo</td><td class="sorting_1">2015-07-05 16:59:10</td><td><i class="fa fa-exclamation-circle"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-6">
+    <h2>Formulario con <b>edicion</b></h2>
+    <form class="form" role="form" tipo="edicion">
+      <div class="form-group">
+        <div class="result"></div>
+        <div class="input-group">
+          <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+          <input name="nombre" type="text" placeholder="Agrege su nombre ..." class="form-control input-pdfl" disabled="disabled"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-pdfl btn-edit-disabled" type="button"><i class="fa fa-edit"></i> <span class="hidden-xxs">Cambiar</span></button>
+            <button class="btn btn-default btn-pdfl" type="submit"><i class="fa fa-check-square-o"></i></button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="row footer">
+  <!-- Menu en el footer con toggling -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2"><i class="fa fa-bars"></i></button>
+        <a class="navbar-brand" href="http://www.pdflibros.org/"><img src="img/logo.png" alt="PDFlibros"></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav nav-justified">
+          <li><a href="http://www.pdflibros.org/libros/">LIBROS</a></li>
+          <li><a href="http://www.pdflibros.org/escritores/">ESCRITORES</a></li>
+          <li><a href="http://www.pdflibros.org/frases/">FRASES</a></li>
+          <li><a href="http://www.pdflibros.org/articulos/">ARTICULOS</a></li>
+        </ul>
+      </div>
+      </div>
+  </nav>
+<div class="col-xs-12 backtotop"><a href="#" id="back-to-top"><i class="fa fa-angle-up"></i></a></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 col-sm-6">
+      <!-- Formulario de contacto -->
+      <div id="sendmail">
+        <form class="form" role="form" tipo="contacto">
+          <div class="result"></div>
+          <div class="form-group col-xs-6 col-xxs-12">
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+              <input name="nombre" type="text" placeholder="Su nombre ..." class="form-control input-pdfl"/>
+            </div>
+          </div>
+          <div class="form-group col-xs-6 col-xxs-12">
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-at"></i></span>
+              <input name="correo" type="email" placeholder="Su correo ..." class="form-control input-pdfl"/>
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-comments"></i></span>
+              <textarea name="mensaje" placeholder="Su mensaje a la administración ..." class="form-control input-pdfl"></textarea>
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <button type="submit" class="btn btn-default btn-pdfl btn-block"/>Enviar correo <i class="fa fa-share"></i></buton>
+          </div>
+        </form>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-2 col-sm-6"></div>
+    <div class="col-md-5 col-sm-6">
+    <!-- Formulario de busqueda -->
+    <form action="http://www.pdflibros.org/buscar/" id="cse-search-box">
+      <input type="hidden" name="cx" value="partner-pub-3088837901615838:6074027469">
+      <input type="hidden" name="cof" value="FORID:10">
+      <input type="hidden" name="ie" value="UTF-8">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" name="q" id="q" class="form-control input-pdfl" placeholder="Buscar ..." required>
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-default btn-pdfl" name="sa" id="sa"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="col-xs-12 creditos">
+      <img src="img/logo_square.png" alt="PDFLibros" class="logo_footer">
+      <p><i class="fa fa-copyright"></i> PDFLibros.org 2015. (<a href="http://www.pdflibros.org/" class="a_link" title="Libros en PDFs">Libros PDF</a>)</p>
+      <ul class="breadcrumb">
+        <li><button class="btn btn-default btn-link a_link tomodal" path="legal">Legal</button></li>
+        <li><button class="btn btn-default btn-link a_link tomodal" path="privacidad">Privacidad</button></li>
+        <li><button class="btn btn-default btn-link a_link tomodal" path="terminos">Términos</button></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>
+</footer>
+
+</div> <!-- END OFFCANVAS -->
+
+<!-- Modal -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-content-pdfl">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal-title"><b>Titulo del contenido</b></div>
+      </div>
+      <div class="modal-body">
+        <p>Contenido a mostrar</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-pdfl" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap-3.3.2-dist/js/jquery-1.11.2.min.js"></script>
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/rating.js"></script>
+    <script type='text/javascript' src="js/custom.js"></script>
+    <script type='text/javascript' src="js/formularios.js"></script>
+    <script type='text/javascript' src="js/jquery.dataTables.js"></script>
+    <script type='text/javascript' src="js/bootstrap-datatables.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+    $('#registro').DataTable({
+      "order": [[ 3, "desc" ]],
+      "sPaginationType": "full_numbers", "aLengthMenu": [5, 10, 25], "iDisplayLength": 5,
+      
+      "oLanguage": {
+    "sProcessing":     "Procesando...",
+    "sLengthMenu":     "Mostrar _MENU_ registros",
+    "sZeroRecords":    "No se encontraron resultados",
+    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":    "",
+    "sSearch":         "",
+    "sSearchPlaceholder": "Buscar...",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+        "sFirst":    "Primero",
+        "sLast":     "Último",
+        "sNext":     ">",
+        "sPrevious": "<"
+    },
+    "oAria": {
+        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+            }
+
+    });
+});
+    </script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap-3.3.2-dist/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
