@@ -83,4 +83,5 @@ $('.btn-offcanvas').click(function () {
 $('.form').formularios();
 $('.btn-like').likes();
 $('.stars').stars();
+$('.linkreport').linkreport();
 });
