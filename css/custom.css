@@ -45,6 +45,8 @@ nav.top-nav .navbar-nav>li>a:hover, nav.top-nav .navbar-nav>li>a:focus, nav.top-
 	color: #000;
 }
 nav.subtop-nav {
+	background: transparent;
+	border: 0;
 	margin-bottom: 0;
 }
 nav.subtop-nav .navbar-toggle{
@@ -53,6 +55,7 @@ nav.subtop-nav .navbar-toggle{
 nav.subtop-nav .navbar-form {
 	padding: 0;
 	margin-right: 0;
+	border: 0;
 }
 nav.subtop-nav .navbar-nav>li>a {
 	
@@ -73,9 +76,6 @@ nav.scrollspy-nav ul li a{
 }
 nav.scrollspy-nav ul li.active a{
 	color: #000;
-}
-nav.subtop-nav {
-	background: transparent;
 }
 .navbar-toggle {
   border: 0;
@@ -114,6 +114,9 @@ header h2 {
 	font-size: 20px;
 	font-weight: bold;
 	line-height: 20px;
+}
+.index-offcanvas {
+	margin: 0;
 }
 .index {
 	margin: 0;
@@ -583,6 +586,9 @@ input.text-pdfl:hover, input.text-pdfl:focus {
   margin: 5px;
   padding: 45px 0 0 0;
   background: url("../img/amazon_icon.png") no-repeat 0 10px;
+}
+.row-striped-pdfl>.row:nth-of-type(odd){
+	background-color: #EBE9DC;
 }
 .table-striped-pdfl>tbody>tr:nth-of-type(odd) {
   background-color: #EBE9DC;

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.png">
+
+  <title>Plantilla General de funcionamiento PDFlibros.org</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta content="es" name="language"/>
+  <meta content="article" property="og:type"/>
+  <meta content="" property="og:site_name"/>
+  <meta content="" property="og:title"/>
+  <meta content="" property="og:description"/>
+  <meta content="" property="og:image"/>
+  <meta content="" property="og:url"/>
+
+  <link rel="image_src" href="" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <link href="css/bootstrap-datatables.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/rating.css" rel="stylesheet"/>
+  <link href="css/ncustom.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- Menu en el top -->
+<nav class="navbar navbar-default navbar-fixed-top top-nav">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://www.pdflibros.org/"><img src="img/logo.png" alt="Libros PDF"></a>
+      
+    </div>
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="http://www.pdflibros.org/contribuir.html"><i class="fa fa-pencil-square-o"></i> <span class="hidden-xxs">Contribuir</span></a></li>
+        <li><a href="http://www.pdflibros.org/registrarse.html"><i class="fa fa-user-plus"></i> <span class="hidden-xxs">Registrarse</span></a></li>
+      </ul>
+  </div>
+</nav>
+<!-- Contenido offcanvas del menu -->
+<div class="row contenido row-offcanvas row-offcanvas-left">
+  <!-- Menu con offcanvas -->
+<nav class="navbar navbar-default subtop-nav">
+    <div class="container">
+      <!-- Menu offcanvas-->
+      <div class="sidebar-offcanvas">
+        <ul class="nav navbar-nav">
+          <li><a href="http://www.pdflibros.org/">Libros</a></li>
+          <li><a href="http://www.pdflibros.org/">Escritores</a></li>
+          <li><a href="http://www.pdflibros.org/">Frases</a></li>
+          <li><a href="http://www.pdflibros.org/">Articulos</a></li>
+        </ul>
+      </div>
+      <div class="navbar-header pull-right">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas"><i class="fa fa-bars"></i></button>   
+        <form action="http://www.pdflibros.org/buscar/" id="cse-search-box" class="navbar-form navbar-left" role="search">
+          <input type="hidden" name="cx" value="partner-pub-3088837901615838:6074027469">
+          <input type="hidden" name="cof" value="FORID:10">
+          <input type="hidden" name="ie" value="UTF-8">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control input-pdfl" name="q" id="q" placeholder="Buscar ..." required>
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-default btn-pdfl" name="sa" id="sa"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</nav>
+<!-- Contenido -->
+<div class="container">
+<div class="col-md-10 col-xs-12 col-md-push-1 xxs-nopadding">
+  <div class="col-xs-12">
+    <h2>Lista de <b>libros</b></h2>
+
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="row footer">
+  <!-- Menu en el footer con toggling -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2"><i class="fa fa-bars"></i></button>
+        <a class="navbar-brand" href="http://www.pdflibros.org/"><img src="img/logo.png" alt="PDFlibros"></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav nav-justified">
+          <li><a href="http://www.pdflibros.org/libros/">LIBROS</a></li>
+          <li><a href="http://www.pdflibros.org/escritores/">ESCRITORES</a></li>
+          <li><a href="http://www.pdflibros.org/frases/">FRASES</a></li>
+          <li><a href="http://www.pdflibros.org/articulos/">ARTICULOS</a></li>
+        </ul>
+      </div>
+      </div>
+  </nav>
+<div class="col-xs-12 backtotop"><a href="#" id="back-to-top"><i class="fa fa-angle-up"></i></a></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 col-sm-6">
+      <!-- Formulario de contacto -->
+      <div id="sendmail">
+        <form class="form" role="form" tipo="contacto">
+          <div class="result"></div>
+          <div class="form-group col-xs-6 col-xxs-12">
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-user"></i></span>
+              <input name="nombre" type="text" placeholder="Su nombre ..." class="form-control input-pdfl"/>
+            </div>
+          </div>
+          <div class="form-group col-xs-6 col-xxs-12">
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-at"></i></span>
+              <input name="correo" type="email" placeholder="Su correo ..." class="form-control input-pdfl"/>
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon addon-pdfl"><i class="fa fa-comments"></i></span>
+              <textarea name="mensaje" placeholder="Su mensaje a la administración ..." class="form-control input-pdfl"></textarea>
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <button type="submit" class="btn btn-default btn-pdfl btn-block"/>Enviar correo <i class="fa fa-share"></i></buton>
+          </div>
+        </form>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-2 col-sm-6"></div>
+    <div class="col-md-5 col-sm-6">
+    <!-- Formulario de busqueda -->
+    <form action="http://www.pdflibros.org/buscar/" id="cse-search-box">
+      <input type="hidden" name="cx" value="partner-pub-3088837901615838:6074027469">
+      <input type="hidden" name="cof" value="FORID:10">
+      <input type="hidden" name="ie" value="UTF-8">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" name="q" id="q" class="form-control input-pdfl" placeholder="Buscar ..." required>
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-default btn-pdfl" name="sa" id="sa"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="col-xs-12 creditos">
+      <img src="img/logo_square.png" alt="PDFLibros" class="logo_footer">
+      <p><i class="fa fa-copyright"></i> PDFLibros.org 2015. (<a href="http://www.pdflibros.org/" class="a_link" title="Libros en PDFs">Libros PDF</a>)</p>
+      <ul class="breadcrumb">
+        <li><button class="btn btn-default btn-link a_link tomodal" path="legal">Legal</button></li>
+        <li><button class="btn btn-default btn-link a_link tomodal" path="privacidad">Privacidad</button></li>
+        <li><button class="btn btn-default btn-link a_link tomodal" path="terminos">Términos</button></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>
+</footer>
+
+</div> <!-- END OFFCANVAS -->
+
+<!-- Modal -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-content-pdfl">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal-title"><b>Titulo del contenido</b></div>
+      </div>
+      <div class="modal-body">
+        <p>Contenido a mostrar</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-pdfl" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/rating.js"></script>
+    <script type='text/javascript' src="js/custom.js"></script>
+    <script type='text/javascript' src="js/formularios.js"></script>
+    <script type='text/javascript' src="js/jquery.dataTables.js"></script>
+    <script type='text/javascript' src="js/bootstrap-datatables.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap-3.3.2-dist/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
