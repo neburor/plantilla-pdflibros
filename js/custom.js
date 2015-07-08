@@ -55,11 +55,9 @@ $('.tomodal').on("click", function(){
     $('#modal1').modal('show');
     var formularios = $('#modal1').find('.form');
     var likes = $('#modal1').find('.btn-like');
-    var opciones = $('#modal1').find('input[name="opciones"]');
     var stars = $('#modal1').find('.stars');
 
     $(likes).likes();
-    $(opciones).opciones();
     $(stars).stars();
     $(formularios).formularios();
     });
