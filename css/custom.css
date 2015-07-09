@@ -146,6 +146,9 @@ header h2 {
 #online {
 	margin-bottom: 20px;
 }
+a, a:hover, a:focus, a:active {
+	color: #333;
+}
 .a_link {
 	padding: 0;
 	margin: 0;
@@ -163,6 +166,9 @@ header h2 {
 	font-size: 28px;
 	color: #AA3F3F;
 	text-decoration: underline;
+}
+.link_down:hover, .link_down:active, .link_down:focus{
+	color: #333;
 }
 .dropdown-menu-pdfl {
 	background: #ebe7d0;
@@ -523,6 +529,7 @@ input.text-pdfl:hover, input.text-pdfl:focus {
 	text-decoration: none;
 	color: #333;
 }
+
 .inp_error {
   border: 1px solid #EF461A !important;
 }
@@ -1128,12 +1135,19 @@ h3 {
 .col-xxs-push-0 {
   left: auto;
 }
+.col-xxs-pull-0 {
+	right: auto;
 }
-/*
- * Off Canvas
- * --------------------------------------------------
- */
-@media screen and (max-width: 767px) {
+.blockquote-pdfl q, .blockquote-pdfl p {
+	float: left;
+	font-size: 14px;
+	line-height: 14px;
+}
+.blockquote-pdfl1>p>q{
+	float: none;
+}
+}
+@media (max-width: 767px) {
   .row-offcanvas {
     position: relative;
     -webkit-transition: all .25s ease-out;
@@ -1177,4 +1191,14 @@ h3 {
  
   	margin: 0;
   }
+.xs-nopadding {
+	padding: 0;
+}
+.blockquote-pdfl1 q, .blockquote-pdfl1 p{
+	font-weight: normal;
+	font-size: 14px;
+}
+.blockquote-pdfl1>p>q{
+	font-weight: bold;
+}
 }
