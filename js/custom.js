@@ -93,16 +93,10 @@ $.fn.cargarlibros = function(){
     cantidad=$(this).attr('cantidad');
     inicio=$(this).attr('inicio');
     mostrar=$('#listalibros');
-    contenido=$('#listalibros').html();
      var formulario = new FormData();
     formulario.append("orden", orden);
     formulario.append("cantidad", cantidad);
     formulario.append("inicio", inicio);
-    $(this).empty().html('<span>Siguientes</span> <i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
-    $('body,html').stop().animate({ scrollTop: $(mostrar).offset() }, 800);
-    $(mostrar).children().collapse(500, function(){
-        $(mostrar).empty().append(contenido);
-    });
     
          $.ajax({
            type: "POST",
@@ -115,10 +109,14 @@ $.fn.cargarlibros = function(){
            success: function(data)
            {
                 $(this).empty().html('<span>Siguientes</span> <span aria-hidden="true">»</span>').removeAttr("disabled");
+                $(mostrar).empty().append(data);
+                $(mostrar).find('.stars').stars();
+             
            },
            beforeSend: function() 
            {   
                 $(this).empty().html('<span>Siguientes</span> <i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
+                $('html, body').animate({scrollTop: $('#listalibros').offset().top - 50}, 900);
            },
             error: function()
            {   
