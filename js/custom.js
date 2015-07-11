@@ -82,7 +82,51 @@ $('.form').formularios();
 $('.btn-like').likes();
 $('.stars').stars();
 $('.linkreport').linkreport();
+$('.cargarlibros').cargarlibros();
 });
+/*Cargar libros*/
+$.fn.cargarlibros = function(){
+    $(this).on('click', function(){
+    var number =Number($(this).attr('inicio')) + 10;
+    $(this).attr('inicio', number);
+    orden=$(this).attr('orden');
+    cantidad=$(this).attr('cantidad');
+    inicio=$(this).attr('inicio');
+    mostrar=$('#listalibros');
+    contenido=$('#listalibros').html();
+     var formulario = new FormData();
+    formulario.append("orden", orden);
+    formulario.append("cantidad", cantidad);
+    formulario.append("inicio", inicio);
+    $(this).empty().html('<span>Siguientes</span> <i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
+    $('body,html').stop().animate({ scrollTop: $(mostrar).offset() }, 800);
+    $(mostrar).children().collapse(500, function(){
+        $(mostrar).empty().append(contenido);
+    });
+    
+         $.ajax({
+           type: "POST",
+           url: "../js/cargarlibros.php",
+           dataType: "html",
+           data: formulario,// Adjuntar los campos del formulario enviado.
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data)
+           {
+                $(this).empty().html('<span>Siguientes</span> <span aria-hidden="true">»</span>').removeAttr("disabled");
+           },
+           beforeSend: function() 
+           {   
+                $(this).empty().html('<span>Siguientes</span> <i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
+           },
+            error: function()
+           {   
+                $(this).empty().html('<i class="fa fa-warning"></i> Reintentar!').removeAttr("disabled");
+           }
+         });
+});
+}
 /*Procesar star rating*/
 $.fn.stars = function(){
     //Mostrar el rating
