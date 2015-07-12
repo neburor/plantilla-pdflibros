@@ -51,7 +51,7 @@ $('a[href^="#"].animatescroll').on('click',function (e) {
 //Modals
 $('.tomodal').on("click", function(){
     var path = $(this).attr("path");
-    $("#modal1 div.modal-content").load("js/modals.php?url="+path, function() {
+    $("#modal1 div.modal-content").load("../js/modals.php?url="+path, function() {
     $('#modal1').modal('show');
     var formularios = $('#modal1').find('.form');
     var likes = $('#modal1').find('.btn-like');
@@ -135,7 +135,7 @@ $.fn.stars = function(){
   id=$(this).attr('id-rating');
   content=$(this).attr('content');
   rating=$(this).attr('rating');
-  $(this).rating('js/formularios.php', { maxvalue:5, curvalue:content, id:id, userRating:rating });
+  $(this).rating('../js/formularios.php', { maxvalue:5, curvalue:content, id:id, userRating:rating });
 });
 }
 /*Procesar Me gusta*/
