@@ -87,16 +87,17 @@ $('.cargarlibros').cargarlibros();
 /*Cargar libros*/
 $.fn.cargarlibros = function(){
     $(this).on('click', function(){
-    var number =Number($(this).attr('inicio')) + 10;
-    $(this).attr('inicio', number);
-    orden=$(this).attr('orden');
-    cantidad=$(this).attr('cantidad');
-    inicio=$(this).attr('inicio');
-    mostrar=$('#listalibros');
-     var formulario = new FormData();
-    formulario.append("orden", orden);
-    formulario.append("cantidad", cantidad);
-    formulario.append("inicio", inicio);
+      btncontrol=$(this);
+      inicio=Number($(this).attr('inicio'))
+      var number = inicio + 10;
+      $(this).attr('inicio', number);
+      orden=$(this).attr('orden');
+      cantidad=$(this).attr('cantidad');
+      mostrar=$('#listalibros');
+      var formulario = new FormData();
+      formulario.append("orden", orden);
+      formulario.append("cantidad", cantidad);
+      formulario.append("inicio", inicio);
     
          $.ajax({
            type: "POST",
@@ -108,21 +109,23 @@ $.fn.cargarlibros = function(){
            processData: false,
            success: function(data)
            {
-                $(this).empty().html('<span>Siguientes</span> <span aria-hidden="true">»</span>').removeAttr("disabled");
-                $(mostrar).empty().append(data);
-                $(mostrar).find('.stars').stars();
-             
+                $(btncontrol).empty().html('<span>Siguientes</span> <span aria-hidden="true">»</span>').removeAttr("disabled");
+                $(mostrar).children().fadeOut(500, function() {
+                  $(mostrar).empty().append(data);
+                  $(mostrar).find('.stars').stars();
+                });
            },
            beforeSend: function() 
            {   
-                $(this).empty().html('<span>Siguientes</span> <i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
+                $(btncontrol).empty().html('<span>Siguientes</span> <i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
                 $('html, body').animate({scrollTop: $('#listalibros').offset().top - 50}, 900);
            },
             error: function()
            {   
-                $(this).empty().html('<i class="fa fa-warning"></i> Reintentar!').removeAttr("disabled");
+                $(btncontrol).empty().html('<i class="fa fa-warning"></i> Reintentar!').removeAttr("disabled");
            }
          });
+event.preventDefault();
 });
 }
 /*Procesar star rating*/
