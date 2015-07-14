@@ -562,6 +562,9 @@ input.text-pdfl:hover, input.text-pdfl:focus {
 	padding: 5px 10px;
 	margin: 0;
 }
+.alert-modal {
+	margin-bottom: 0;
+}
 .checkbox-pdfl {
 	display: block;
 }

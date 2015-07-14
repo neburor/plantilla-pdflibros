@@ -51,18 +51,8 @@ $('a[href^="#"].animatescroll').on('click',function (e) {
 //Modals
 $('.tomodal').on("click", function(){
     var path = $(this).attr("path");
-    $("#modal1 div.modal-content").load("../js/modals.php?url="+path, function() {
-    $('#modal1').modal('show');
-    var formularios = $('#modal1').find('.form');
-    var likes = $('#modal1').find('.btn-like');
-    var stars = $('#modal1').find('.stars');
-
-    $(likes).likes();
-    $(stars).stars();
-    $(formularios).formularios();
-
-    ga('send', 'event', 'Modals', path);
-    });
+    Modals(path);
+    if(typeof(ga) != "undefined"){ga('send', 'event', 'Modals', path);}
     event.preventDefault();
 });
 
@@ -87,7 +77,7 @@ $('.linkclick').on('click', function() {
   if($(this).attr('linkclick')){ var cat= $(this).attr('linkclick'); }
   else { var cat= $(this).attr('title'); }
 
-  ga('send', 'event', 'Clicks', cat, label);
+  if(typeof(ga) != "undefined"){ga('send', 'event', 'Clicks', cat, label);}
 });
 
 //FUNCIONES
@@ -150,7 +140,7 @@ $.fn.stars = function(){
   rating=$(this).attr('rating');
   $(this).rating('../js/formularios.php', { maxvalue:5, curvalue:content, id:id, userRating:rating });
 
-  ga('send', 'event', 'Ratings', rating, id);
+  if(typeof(ga) != "undefined"){ga('send', 'event', 'Ratings', rating, id);}
 });
 }
 /*Procesar Me gusta*/
@@ -178,6 +168,9 @@ $(this).on('click', function(){
            cache: false,
            contentType: false,
            processData: false,
+           complete: function(){
+            Modals('like');
+           },
            success: function(data)
            {
                 if(data.token!=undefined || data.device!=undefined){ addLS(data)}
@@ -194,7 +187,7 @@ $(this).on('click', function(){
            {   
               $(showcontrol).empty().html('<i class="fa fa-cog fa-spin"></i>');// Mientras se envia.
               $(btncontrol).attr("disabled","disabled");
-               ga('send', 'event', 'Likes', text, id);
+               if(typeof(ga) != "undefined") {ga('send', 'event', 'Likes', text, id);}
            },
             error: function()
            {    $(showcontrol).empty().html('<i class="fa fa-times"></i>');// Si no se pudo enviar.
@@ -239,7 +232,8 @@ $(this).on('click', function(){
            beforeSend: function() 
            {   
               $(btncontrol).empty().html('<i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
-              ga('send', 'event', 'Clicks', 'LinkReport', id);
+              if(typeof(ga) != "undefined"){ ga('send', 'event', 'Clicks', 'LinkReport', id); }
+              
            },
             error: function()
            {   
@@ -247,4 +241,17 @@ $(this).on('click', function(){
            }
          });
 });
+}
+function Modals (path){
+   $("#modal1 div.modal-content").load("../js/modals.php?url="+path, function() {
+    $('#modal1').modal('show');
+    var formularios = $('#modal1').find('.form');
+    var likes = $('#modal1').find('.btn-like');
+    var stars = $('#modal1').find('.stars');
+
+    $(likes).likes();
+    $(stars).stars();
+    $(formularios).formularios();
+
+    });
 }
