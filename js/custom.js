@@ -60,6 +60,8 @@ $('.tomodal').on("click", function(){
     $(likes).likes();
     $(stars).stars();
     $(formularios).formularios();
+
+    ga('send', 'event', 'Modals', path);
     });
     event.preventDefault();
 });
@@ -71,13 +73,24 @@ $('.popshare').on("click", function(){
     return false;
 });
 
-
+//OFFCANVAS
 $('[data-toggle="offcanvas"]').click(function () {
     $('.row-offcanvas').toggleClass('active');
   });
 $('.btn-offcanvas').click(function () {
     $('.row-offcanvas').toggleClass('active');
   });
+
+//EVENTOS
+$('.linkclick').on('click', function() {
+  var label = $(this).text();
+  if($(this).attr('linkclick')){ var cat= $(this).attr('linkclick'); }
+  else { var cat= $(this).attr('title'); }
+
+  ga('send', 'event', 'Clicks', cat, label);
+});
+
+//FUNCIONES
 $('.form').formularios();
 $('.btn-like').likes();
 $('.stars').stars();
@@ -136,6 +149,8 @@ $.fn.stars = function(){
   content=$(this).attr('content');
   rating=$(this).attr('rating');
   $(this).rating('../js/formularios.php', { maxvalue:5, curvalue:content, id:id, userRating:rating });
+
+  ga('send', 'event', 'Ratings', rating, id);
 });
 }
 /*Procesar Me gusta*/
@@ -147,9 +162,7 @@ $(this).on('click', function(){
     elemento=$(this).parents('div.input-group').first();
     showcontrol=$(elemento).find("span.input-group-addon");
     btncontrol=$(elemento).find("button.btn-pdfl").first();
-    console.log(elemento);
-    console.log(showcontrol);
-    console.log(btncontrol);
+
      var formulario = new FormData();
     formulario.append("text", text);
     formulario.append("id", id);
@@ -181,6 +194,7 @@ $(this).on('click', function(){
            {   
               $(showcontrol).empty().html('<i class="fa fa-cog fa-spin"></i>');// Mientras se envia.
               $(btncontrol).attr("disabled","disabled");
+               ga('send', 'event', 'Likes', text, id);
            },
             error: function()
            {    $(showcontrol).empty().html('<i class="fa fa-times"></i>');// Si no se pudo enviar.
@@ -225,6 +239,7 @@ $(this).on('click', function(){
            beforeSend: function() 
            {   
               $(btncontrol).empty().html('<i class="fa fa-cog fa-spin"></i>').attr("disabled","disabled");
+              ga('send', 'event', 'Clicks', 'LinkReport', id);
            },
             error: function()
            {   
