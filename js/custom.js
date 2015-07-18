@@ -139,8 +139,6 @@ $.fn.stars = function(){
   content=$(this).attr('content');
   rating=$(this).attr('rating');
   $(this).rating('../js/formularios.php', { maxvalue:5, curvalue:content, id:id, userRating:rating });
-
-  if(typeof(ga) != "undefined"){ga('send', 'event', 'Ratings', rating, id);}
 });
 }
 /*Procesar Me gusta*/
