@@ -73,7 +73,7 @@ $('.btn-offcanvas').click(function () {
 
 //EVENTOS
 $('.linkclick').on('click', function() {
-  var label = $(this).text();
+  var label = $(this).clone().children().remove().end().text();
   if($(this).attr('linkclick')){ var cat= $(this).attr('linkclick'); }
   else { var cat= $(this).attr('title'); }
 
